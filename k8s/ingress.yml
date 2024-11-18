@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: backnode-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: ulink-backnode.tssw.cl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: node-back-svc
+                port:
+                  number: 80

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-back-svc
+  labels:
+    app: node-back
+spec:
+  type: ClusterIP
+  selector:
+    app: node-back
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3000

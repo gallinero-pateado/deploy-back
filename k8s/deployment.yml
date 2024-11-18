@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-back
+  labels:
+    app: node-back
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-back
+  template:
+    metadata:
+      labels:
+        app: node-back
+    spec:
+      containers:
+      - name: node-back
+        image: us-central1-docker.pkg.dev/tss-2s2024/docker-ulink/node-back:v0
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            memory: 64Mi
+            cpu: 50m
+          limits:
+            memory: 128Mi
+            cpu: 100m
